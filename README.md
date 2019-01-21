@@ -35,7 +35,11 @@ return pkWebpack(
 );
 ```
 
-- This initializes Webpack with the proper dev environment, and passes along the root of the project for proper "build" context. In other words, it gives Webpack knowledge of where to look for, and compile assets.
+This initializes Webpack with the proper dev environment, and passes along the root of the project for proper "build" context. In other words, it gives Webpack knowledge of where to look for, and compile assets.
+
+4. `pk-webpack` will look inside your `src` folder for javascript, and sass files within `js`, and `scss` folders respectively. Following best practices, the entry points are `/src/js/site.js` and `/src/scss/site.scss`.
+
+5. `pk-webpack` will build these files into your `/public` directory as `always.css` and `always.js` files, that your `pk-` module *must push in afterConstruct*.
 
 #### Watching & Dev
 
