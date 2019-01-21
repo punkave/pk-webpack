@@ -23,7 +23,7 @@ package.json
 
 ```
 webpack-dev.js
-
+...
 const pkWebpack = require('pk-webpack');
 const path = require('path');
 const appRoot = path.resolve(__dirname, '../');
