@@ -1,0 +1,5 @@
+src/js/vendor/**/*.js
+src/scss/vendor/**/*.scss
+scripts/sync-down
+scripts/sync-up
+node_modules
