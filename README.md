@@ -27,10 +27,10 @@ webpack-dev.js
 const pkWebpack = require('pk-webpack');
 const path = require('path');
 const appRoot = path.resolve(__dirname, './');
-return pkWebpack(
+pkWebpack(
   {
-    "appRoot": appRoot,
-    "env": "dev"
+    'appRoot': appRoot,
+    'env': 'dev'
   }
 );
 ```
