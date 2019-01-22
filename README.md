@@ -26,16 +26,17 @@ webpack-dev.js
 ...
 const pkWebpack = require('pk-webpack');
 const path = require('path');
-const appRoot = path.resolve(__dirname, './');
-pkWebpack(
-  {
-    'appRoot': appRoot,
-    'env': 'dev'
-  }
-);
+const appRoot = path.resolve(__dirname, '../');
+
+const config = {
+  'mode': 'development'
+};
+
+pkWebpack(appRoot, config);
+
 ```
 
-This initializes Webpack with the proper dev environment, and passes along the root of the project for proper "build" context. In other words, it gives Webpack knowledge of where to look for, and compile assets. "env" could either be `dev` or `prod`, depending on the context and the file that you're in.
+This initializes Webpack with the proper dev environment, and passes along the root of the project for proper "build" context. In other words, it gives Webpack knowledge of where to look for, and compile assets. "mode" could either be `development` or `production`, depending on the context and the file that you're in. This gets merged with Webpack's standard configuration object, so you can pass other parameters here as well.
 
 4. `pk-webpack` will look inside your `src` folder for javascript, and sass files within `js`, and `scss` folders respectively. Following best practices, the entry points are `/src/js/site.js` and `/src/scss/site.scss`.
 
