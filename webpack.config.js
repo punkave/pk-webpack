@@ -2,13 +2,12 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-module.exports = function (config) {
+module.exports = function (appRoot) {
   return {
-    mode: 'development',
-    entry: [`${config.appRoot}/src/js/site.js`, `${config.appRoot}/src/scss/site.scss`],
+    entry: [`${appRoot}/src/js/site.js`, `${appRoot}/src/scss/site.scss`],
     devtool: '#eval-source-map',
     output: {
-      path: `${config.appRoot}/public/js/`,
+      path: `${appRoot}/public/js/`,
       filename: 'always.js',
       hotUpdateChunkFilename: 'hot/hot-update.js',
       hotUpdateMainFilename: 'hot/hot-update.json'

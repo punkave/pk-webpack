@@ -1,20 +1,22 @@
+const _ = require('lodash');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const chalk = require('chalk');
 const log = console.log;
 
-module.exports = function (config) {
-  const configObj = webpackConfig(config);
-  const compiler = webpack(configObj);
+module.exports = function (appRoot, config) {
+  const configObj = _.merge(webpackConfig(appRoot), config);
 
-  if (config.env === 'dev') {
-    return compiler.watch({}, (err, stats) => {
-      errorHandler(err, stats, 'Watching...');
+  if (config.mode === 'development') {
+    log(chalk.black.bgGreen('Running in DEVELOPMENT mode'));
+    return webpack(configObj).watch({}, (err, stats) => {
+      errorHandler(err, stats, 'Watching files...');
     });
   }
 
-  if (config.env === 'prod') {
-    return compiler.run((err, stats) => {
+  if (config.mode === 'production') {
+    log(chalk.black.bgGreen('Running in PRODUCTION mode'));
+    return webpack(configObj).run((err, stats) => {
       errorHandler(err, stats, 'Assets compiled');
     });
   }
