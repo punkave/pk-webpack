@@ -21,11 +21,7 @@ module.exports = function (appRoot) {
         configFile: path.join(__dirname, './.stylelintrc.json')
       })
     ],
-    resolve: {
-      modules: [ path.join(__dirname, 'node_modules') ]
-    },
     resolveLoader: {
-      modules: [ path.join(__dirname, 'node_modules') ],
       extensions: [ '.js', '.json' ]
     },
     module: {
