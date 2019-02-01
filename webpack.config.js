@@ -18,16 +18,9 @@ module.exports = function (appRoot) {
       }),
       new StyleLintPlugin({
         failOnError: false,
-        configFile: path.join(__dirname, './.stylelintrc.json')
+        configFile: path.join(__dirname, './.stylelintrc')
       })
     ],
-    resolve: {
-      modules: [ path.join(__dirname, 'node_modules') ]
-    },
-    resolveLoader: {
-      modules: [ path.join(__dirname, 'node_modules') ],
-      extensions: [ '.js', '.json' ]
-    },
     module: {
       rules: [
         {
@@ -42,7 +35,7 @@ module.exports = function (appRoot) {
           exclude: /node_modules/,
           loader: 'eslint-loader',
           options: {
-            configFile: path.join(__dirname, './.eslintrc.json')
+            configFile: path.join(__dirname, './.eslintrc')
           }
         },
         {
