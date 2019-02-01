@@ -8,7 +8,7 @@
     "dev": "webpack --watch",
     "stylelint": "./node_modules/.bin/stylelint \"src/**/*.scss\"",
     "eslint": "./node_modules/.bin/eslint eslint",
-    "prepare": ""
+    "postinstall": "npm i"
   },
   "author": "",
   "license": "ISC",
