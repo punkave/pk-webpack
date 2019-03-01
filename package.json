@@ -9,8 +9,8 @@
     "stylelint": "./node_modules/.bin/stylelint \"src/**/*.scss\"",
     "eslint": "./node_modules/.bin/eslint eslint"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "P'unk Ave",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
