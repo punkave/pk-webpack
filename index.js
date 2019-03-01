@@ -1,11 +1,10 @@
-const _ = require('lodash');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const chalk = require('chalk');
 const log = console.log;
 
 module.exports = function (appRoot, config) {
-  const configObj = _.merge(webpackConfig(appRoot), config);
+  const configObj = { ...webpackConfig(appRoot), ...config };
 
   if (config.mode === 'development') {
     log(chalk.black.bgGreen('Running in DEVELOPMENT mode'));
