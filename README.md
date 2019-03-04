@@ -49,3 +49,12 @@ Running `npm run dev` from within your `pk-` module will start Webpack in `watch
 #### Build & Production
 
 Running `npm run prod` will simply run Webpack once to build the files
+
+#### Running a server project level
+
+You may also run a server project level by passing an options object with `serve: true`. See client-boilerplate to see how this in action:
+```
+webpack.config.js
+...
+return pkWebpack(appRoot, config, { serve: true });
+```
