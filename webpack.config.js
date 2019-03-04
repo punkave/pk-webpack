@@ -1,16 +1,49 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const spawn = require('child_process').spawn;
+const chalk = require('chalk');
 const path = require('path');
+const log = console.log;
+let node;
 
 module.exports = function (appRoot) {
   return {
     entry: [`${appRoot}/src/js/site.js`, `${appRoot}/src/scss/site.scss`],
+    devServer: {
+      port: 3001,
+      writeToDisk: true,
+      overlay: {
+        warnings: true,
+        errors: true
+      },
+      after: function (app, server) {
+        log(chalk.bgGreen.black('Launching Apostrophe...'));
+        if (node) node.kill();
+        node = spawn('node', ['app.js'], {stdio: 'inherit'});
+      }
+    },
     devtool: '#eval-source-map',
     output: {
       path: `${appRoot}/public/js/`,
       filename: 'always.js',
       hotUpdateChunkFilename: 'hot/hot-update.js',
       hotUpdateMainFilename: 'hot/hot-update.json'
+    },
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true
+        }),
+        new OptimizeCSSAssetsPlugin({})
+      ]
+    },
+    performance: {
+      maxEntrypointSize: 500000,
+      maxAssetSize: 500000
     },
     plugins: [
       new MiniCssExtractPlugin({

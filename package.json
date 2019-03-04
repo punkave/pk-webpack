@@ -15,6 +15,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
+    "chalk": "^2.4.2",
     "css-loader": "^0.28.11",
     "eslint": "^4.17.0",
     "eslint-config-punkave": "^1.0.8",
@@ -28,6 +29,7 @@
     "fs.realpath": "^1.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-import": "^1.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
@@ -36,6 +38,7 @@
     "stylelint": "^9.9.0",
     "stylelint-config-punkave": "^0.1.0",
     "stylelint-webpack-plugin": "^0.10.5",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   }

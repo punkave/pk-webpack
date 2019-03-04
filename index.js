@@ -3,8 +3,13 @@ const webpackConfig = require('./webpack.config.js');
 const chalk = require('chalk');
 const log = console.log;
 
-module.exports = function (appRoot, config) {
+module.exports = function (appRoot, config, options) {
   const configObj = { ...webpackConfig(appRoot), ...config };
+
+  if (options.serve === true) {
+    console.log(configObj);
+    return configObj;
+  }
 
   if (config.mode === 'development') {
     log(chalk.black.bgGreen('Running in DEVELOPMENT mode'));
