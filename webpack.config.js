@@ -14,6 +14,7 @@ module.exports = function (appRoot) {
     devServer: {
       port: 3001,
       writeToDisk: true,
+      quiet: true,
       overlay: {
         warnings: true,
         errors: true
