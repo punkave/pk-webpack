@@ -6,7 +6,7 @@ const log = console.log;
 module.exports = function (appRoot, config, options) {
   const configObj = { ...webpackConfig(appRoot), ...config };
 
-  if (options.serve === true) {
+  if (options && options.serve === true) {
     return configObj;
   }
 
