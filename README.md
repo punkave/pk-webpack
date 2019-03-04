@@ -52,7 +52,7 @@ Running `npm run prod` will simply run Webpack once to build the files
 
 #### Running a server project level
 
-You may also run a server project level by passing an options object with `serve: true`. See client-boilerplate to see how this in action:
+You may also run a server project-level by passing an options object with `serve: true`. See client-boilerplate to see this in action:
 ```
 webpack.config.js
 ...
