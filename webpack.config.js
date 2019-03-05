@@ -25,7 +25,7 @@ module.exports = function (appRoot) {
         node = spawn('node', ['app.js'], {stdio: 'inherit'});
       }
     },
-    devtool: '#eval-source-map',
+    devtool: 'eval-source-map',
     output: {
       path: `${appRoot}/public/js/`,
       filename: 'always.js',
