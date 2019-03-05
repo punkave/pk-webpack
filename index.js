@@ -1,27 +1,30 @@
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./webpack.config.js');
 const chalk = require('chalk');
 const log = console.log;
 
 module.exports = function (appRoot, config, options) {
   const configObj = { ...webpackConfig(appRoot), ...config };
+  const compiler = webpack(configObj);
+  const server = new WebpackDevServer(compiler, configObj.devServer);
 
   if (options && options.serve === true) {
-    return webpack(configObj).run((err, stats) => {
-      errorHandler(err, stats, 'Assets compiled');
+    server.listen(3000, '127.0.0.1', () => {
+      log(chalk.black.bgGreen('Starting server on http://localhost:3000'));
     });
   }
 
   if (config.mode === 'development') {
     log(chalk.black.bgGreen('Running in DEVELOPMENT mode'));
-    return webpack(configObj).watch({}, (err, stats) => {
+    return compiler.watch({}, (err, stats) => {
       errorHandler(err, stats, 'Watching files...');
     });
   }
 
   if (config.mode === 'production') {
     log(chalk.black.bgGreen('Running in PRODUCTION mode'));
-    return webpack(configObj).run((err, stats) => {
+    return compiler.run((err, stats) => {
       errorHandler(err, stats, 'Assets compiled');
     });
   }
