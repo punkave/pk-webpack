@@ -7,7 +7,9 @@ module.exports = function (appRoot, config, options) {
   const configObj = { ...webpackConfig(appRoot), ...config };
 
   if (options && options.serve === true) {
-    return configObj;
+    return webpack(configObj).run((err, stats) => {
+      errorHandler(err, stats, 'Assets compiled');
+    });
   }
 
   if (config.mode === 'development') {
