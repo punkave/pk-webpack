@@ -7,10 +7,11 @@ const log = console.log;
 module.exports = function (appRoot, config, options) {
   const configObj = { ...webpackConfig(appRoot), ...config };
   const compiler = Webpack(configObj);
-  const server = new WebpackDevServer(compiler, configObj.devServer);
+
+  configObj.devtool = 'eval-source-map';
 
   if (options && options.serve === true) {
-    return server.listen(3001, '127.0.0.1', () => {
+    return new WebpackDevServer(compiler, configObj.devServer).listen(3001, '127.0.0.1', () => {
       log(chalk.black.bgGreen('Starting server on http://localhost:3000'));
     });
   } else {
@@ -22,6 +23,7 @@ module.exports = function (appRoot, config, options) {
     }
 
     if (config.mode === 'production') {
+      configObj.devtool = false;
       log(chalk.black.bgGreen('Running in PRODUCTION mode'));
       return Webpack(configObj).run((err, stats) => {
         errorHandler(err, stats, 'Assets compiled');
