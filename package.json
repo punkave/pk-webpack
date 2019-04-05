@@ -9,8 +9,8 @@
     "stylelint": "./node_modules/.bin/stylelint \"src/**/*.scss\"",
     "eslint": "./node_modules/.bin/eslint eslint"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "P'unk Ave",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -26,7 +26,6 @@
     "eslint-plugin-react": "^7.6.1",
     "eslint-plugin-standard": "^3.0.1",
     "fs.realpath": "^1.0.0",
-    "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss-import": "^1.0.1",
