@@ -5,7 +5,6 @@ const path = require('path');
 module.exports = function (appRoot) {
   return {
     entry: [`${appRoot}/src/js/site.js`, `${appRoot}/src/scss/site.scss`],
-    devtool: 'none',
     output: {
       path: `${appRoot}/public/js/`,
       filename: 'always.js',
